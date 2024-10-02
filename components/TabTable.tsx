@@ -1,34 +1,30 @@
 import React from 'react'
 import Table from './Table'
+import { DataProps } from '@/types'
 
-function TabTable() {
+function TabTable({data , index} : {data:DataProps, index:number}) {
+    const {project,category} = data
+    // console.log("tabtable: project")
+    // console.log(project)
+    // console.log(category)
+    // console.log('----')
+    // console.log(index)
   return (
-    <div className='flex justify-center'>
-        <div className="artboard artboard-horizontal phone-3 ">
-            <div role="tablist" className="tabs tabs-lifted">
-                <input type="radio" name="my_tabs_2" role="tab" className="tab" aria-label="Tab 1" defaultChecked/>
-                <div role="tabpanel" className="tab-content bg-base-100 border-base-300 rounded-box p-6">
-                    <Table />
+        <>
+            <input type="radio" name="my_tabs_2" role="tab" className="tab" aria-label={project} defaultChecked={index === 0 ? true : false} />
+            <div role="tabpanel" className="tab-content bg-base-100 border-base-300 rounded-box p-6">
+                <div role="tablist" className="tabs tabs-lifted">
+                    {category?.map((subject,index)=>(
+                        <>
+                            <input type="radio" name={`tab-${project}`} role="tab" className="tab" aria-label={subject.name} defaultChecked={index === 0 ? true : false}/>                    
+                            <div role="tabpanel" className="tab-content bg-base-100 border-base-300 rounded-box p-6">
+                                <Table  service={subject.service}/>
+                            </div>
+                        </>
+                    ))}
                 </div>
-
-                <input
-                    type="radio"
-                    name="my_tabs_2"
-                    role="tab"
-                    className="tab"
-                    aria-label="Tab 2"
-                    />
-                <div role="tabpanel" className="tab-content bg-base-100 border-base-300 rounded-box p-6">
-                    <Table />
-                </div>
-
-                <input type="radio" name="my_tabs_2" role="tab" className="tab" aria-label="Tab 3" />
-                <div role="tabpanel" className="tab-content bg-base-100 border-base-300 rounded-box p-6">
-                    <Table />
-                </div>
-            </div>
-        </div>
-    </div>
+            </div>                   
+        </>
   )
 }
 
