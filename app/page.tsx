@@ -7,21 +7,19 @@ import { DataProps } from "@/types";
 
 export default function Home() {
   const fetchData = JSON.parse(fs.readFileSync('./public/version.json','utf-8'))
-  // console.log(fetchData)
+  console.log(fetchData)
   return (
     <>
       <NavBar />
-      
           <div className='flex justify-center'>
             <div className="artboard artboard-horizontal phone-3 ">
               <div role="tablist" className="tabs tabs-lifted">
-                { fetchData?.map((data,index)=>(
+                { fetchData?.map((data:DataProps, index:number)=>(
                   <TabTable data={data} index={index}/>
                 ))}
               </div>
             </div>
         </div>
-      
     </>
   );
 }

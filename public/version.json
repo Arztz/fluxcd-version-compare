@@ -6,12 +6,12 @@
              "name":"apps",
              "service":[
                 {
-                   "name":"eckb",
+                   "name":"eck1",
                    "nonprod":"6.17.0",
                    "uat":"6.17.0"
                 },
                 {
-                   "name":"reloaderb",
+                   "name":"reloader1",
                    "nonprod":"6.17.0",
                    "uat":"6.17.0"
                 }
