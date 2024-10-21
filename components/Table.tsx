@@ -1,7 +1,7 @@
 import { CategoryProps, ServiceProps } from '@/types'
 import React from 'react'
 
-function Table({service}:any) {
+const Table = ({service}:any) => {
     // console.log(service)
   return (
     <div className="overflow-x-auto">

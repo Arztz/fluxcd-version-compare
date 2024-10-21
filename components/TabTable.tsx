@@ -2,12 +2,14 @@ import React from 'react'
 import Table from './Table'
 import { DataProps } from '@/types'
 
-function TabTable({data , index} : {data:DataProps, index:number}) {
+const TabTable = ({data , index} : {data:DataProps, index:number})  => {
+    // function TabTable(data) {
+    console.log(data)
     const {project,category} = data
     // console.log("tabtable: project")
     // console.log(project)
     // console.log(category)
-    // console.log('----')
+    console.log('----')
     // console.log(index)
     const sortCategory = category.sort((a, b) => {
         return a.name.localeCompare(b.name); // Sort alphabetically by 'name'
