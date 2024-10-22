@@ -8,17 +8,17 @@ import { fetchData } from "@/utils";
 
 export default async function Home() {
   // const fetchData = JSON.parse(fs.readFileSync('./public/version.json','utf-8'))
-  const data = await fetchData()
-  // console.log(fetchData)
+  const fdata = await fetchData()
+  // console.log("fetchData")
 
   return (
     <>
       <NavBar />
-          <div className='flex justify-center'>
+          <div className='flex justify-center text-lg'>
             <div className="artboard artboard-horizontal phone-3 ">
               <div role="tablist" className="tabs tabs-lifted">
-                { data?.map((data,index)=>(
-                  <TabTable data={data} index={index}/>
+                { fdata?.map((data:DataProps,index:number)=>(
+                  <TabTable data={data} index={index} key={data.project}/>
                 ))}
               </div>
             </div>
